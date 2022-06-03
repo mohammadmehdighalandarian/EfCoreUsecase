@@ -1,0 +1,38 @@
+﻿@page
+@model EfCoreUsecase.Pages.Shared.ProductCategoryModel
+@{
+}
+
+<div class="text-center">
+    <h1 class="display-4">لیست گروه محصولات</h1>
+    <br/>
+    <button class="btn-success"><a style="text-decoration: none" asp-page="./Create">ایجاد گروه</a></button>
+</div>
+    <br/>
+<table class="table table-responsive table-bordered table-striped">
+    <thead>
+    <tr style="text-align: center">
+        <td>ایدی</td>
+        <td>نام</td>
+        <td>تاریخ ایجاد</td>
+        <td>عملیات</td>
+        
+    </tr>
+    </thead>
+    
+    <tbody>
+    @foreach (var item in Model.ProductCategories)
+    {
+        <tr style="text-align: center">
+            <th>@item.Id</th>
+            <th>@item.Name</th>
+            <th>@item.CreationDate</th>
+            <th>
+                <a asp-page="./Edit" asp-route-id="@item.Id">,ویرایش</a>
+            </th>
+        </tr>
+    }
+  
+    </tbody>
+</table>
+
